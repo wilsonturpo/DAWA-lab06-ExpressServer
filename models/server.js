@@ -41,6 +41,12 @@ class Server{
         this.app.get('/api/persons', (req,res)=>{
             res.json(persons);
         })
+
+        this.app.get('/info', (req,res)=>{
+            var datetime = new Date();
+            console.log(datetime);
+            res.send(`Phoneboook has info for  ${persons.length} people <br/> ${datetime}`)
+        })
     }
 
     listen(){
