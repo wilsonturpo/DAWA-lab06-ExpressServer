@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 
 const persons =[
     {
@@ -24,15 +25,24 @@ const persons =[
 ]
 
 
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+
 class Server{
+    //var jsonParser = bodyParser.json()
     constructor(){
         this.app = express();
         this.port = process.env.PORT
-
+        this.jsonParser = bodyParser.json();
         this.routes();
     }
 
     routes(){
+
+        this.app.use(bodyParser.urlencoded({ extended: false }))
+        this.app.use(bodyParser.json())
         
         this.app.get('/', (req,res)=>{
             res.send("Hola, esta es la ruta inicial, ingrese a api/persons");
@@ -57,6 +67,36 @@ class Server{
             }else{
                 res.sendStatus( 404 );
             }                        
+        })
+
+        this.app.delete('/api/persons/:id', (req,res)=>{
+
+            const id = req.params.id;
+            const people = persons.filter(person => person.id != id)
+            res.json(people);
+                                        
+        })
+
+        this.app.post('/api/persons', (req,res)=>{
+            const {name, number } = req.body;
+
+            const id = getRandomArbitrary(1,100);
+            const newPerson = {
+                id,
+                name,
+                number
+            }
+            console.log(newPerson);
+
+            res.json({
+                msg: "Inserción exitosa",
+                id,
+                name, 
+                number
+            })
+
+            persons.push(newPerson);
+            console.log(persons);
         })
 
 
