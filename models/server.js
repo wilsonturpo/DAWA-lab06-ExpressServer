@@ -1,5 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser')
+//const express = require('express');
+import express from 'express';
+//const bodyParser = require('body-parser')
+import bodyParser from 'body-parser';
 
 const persons =[
     {
@@ -121,4 +123,5 @@ class Server{
 
 }
 
-module.exports = Server;
+//module.exports = Server;
+export default Server;
