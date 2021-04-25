@@ -47,6 +47,19 @@ class Server{
             console.log(datetime);
             res.send(`Phoneboook has info for  ${persons.length} people <br/> ${datetime}`)
         })
+
+        this.app.get('/api/persons/:id', (req,res)=>{
+
+            const id = req.params.id;
+            const person = persons.filter(person => person.id == id)
+            if(person.length>0){
+                res.json(person);
+            }else{
+                res.sendStatus( 404 );
+            }                        
+        })
+
+
     }
 
     listen(){
