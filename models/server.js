@@ -79,15 +79,27 @@ class Server{
 
         this.app.post('/api/persons', (req,res)=>{
             const {name, number } = req.body;
-
             const id = getRandomArbitrary(1,100);
+
+            //Validar existencia de nombre y número
+            if(name === undefined || number === undefined){
+                return res.status(400).json({
+                    error:`Debe ingresar el nombre y número del contacto`
+                })
+            }
+            
+            //Validar existencia del nombre del usuario
+            const resultado = persons.find( persona => persona.name === name );
+            if(resultado){
+                return res.status(400).json({
+                    error:`El nombre ${name} ya está registrado`
+                })
+            }
             const newPerson = {
                 id,
                 name,
                 number
             }
-            console.log(newPerson);
-
             res.json({
                 msg: "Inserción exitosa",
                 id,
@@ -96,7 +108,6 @@ class Server{
             })
 
             persons.push(newPerson);
-            console.log(persons);
         })
 
 
