@@ -1,7 +1,17 @@
+/*
 const debug = require('debug')('app:error'); debug.color = 196
 const log = require('debug')('app:log')
 
 const { config } = require('../../config')
+*/
+import Debug from 'debug'
+
+//  import Log from 'debug'
+
+import { config } from '../../config.mjs'
+
+const debug = Debug('app:error'); debug.color = 196
+const log = Debug('app:log')
 
 const errorFormats = {
   development: (status, message) => ({
@@ -35,4 +45,4 @@ const errorHandler = (
   res.json(errorFormats[format](status, message))
 }
 
-module.exports = errorHandler
+export default errorHandler

@@ -1,8 +1,8 @@
 /**
  * @param {Object} obj
- * @param {import('../infraestructure/MongoContactsRepository')} obj.ContactsRepository
+ * @param {import('../infraestructure/MongoContactsRepository.mjs')} obj.ContactsRepository
  */
-module.exports = ({ ContactsRepository }) => {
+export default ({ ContactsRepository }) => {
   return async ({ id, name, number }) => { // parameters
     const newPerson = {
       name: name,

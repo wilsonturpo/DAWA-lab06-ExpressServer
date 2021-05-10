@@ -1,8 +1,8 @@
 /**
  * @param {Object} obj
- * @param {import('../infraestructure/MongoContactsRepository')} obj.ContactsRepository
+ * @param {import('../infraestructure/MongoContactsRepository.mjs')} obj.ContactsRepository
  */
-module.exports = ({ ContactsRepository }) => {
+export default ({ ContactsRepository }) => {
   return async ({ id }) => {
     if (!id) throw new Error('User does not exist')
     return ContactsRepository.getById(id)

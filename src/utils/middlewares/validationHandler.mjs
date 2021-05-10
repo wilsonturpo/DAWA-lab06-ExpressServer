@@ -1,5 +1,9 @@
+/*
 const createError = require('http-errors')
 const { config } = require('../../config')
+*/
+import createError from 'http-errors'
+import {config} from '../../config.mjs'
 /**
  * @param {object} data
  * @param {import('joi').Schema schema}
@@ -20,4 +24,4 @@ const validationHandler = (schema, check = 'body') => {
   }
 }
 
-module.exports = validationHandler
+export default validationHandler

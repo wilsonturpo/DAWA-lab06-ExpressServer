@@ -1,9 +1,11 @@
-//  import mongoDriver from 'mongobd'
-//  const { MongoClient, ObjectId } = mongoDriver
+import mongoDriver from 'mongodb'
 
-const { MongoClient, ObjectId } = require('mongodb')
-const { config } = require('../config')
-//  import {config} from '../config'
+//  const { MongoClient, ObjectId } = require('mongodb')
+//  const { config } = require('../config')
+
+import { config } from '../config.mjs'
+
+const { MongoClient, ObjectId } = mongoDriver
 
 const MONGO_URI = config.mongo.uri
 const MONGO_DB = config.mongo.db
@@ -82,7 +84,7 @@ class MongoLib {
   }
 }
 
-module.exports = MongoLib
+export default MongoLib
 
 /*
     if (!MongoLib.connection) {

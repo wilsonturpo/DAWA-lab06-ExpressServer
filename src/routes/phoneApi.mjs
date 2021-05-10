@@ -1,22 +1,27 @@
-const router = require('express').Router()
-const validationHandler = require('../utils/middlewares/validationHandler')
+//  const router = require('express').Router()
+import express from 'express'
 
-const {
+//  const validationHandler = require('../utils/middlewares/validationHandler')
+import validationHandler from '../utils/middlewares/validationHandler.mjs'
+
+import {
   createContactSchema,
   getContactSchema,
   updateContactSchema,
   deleteContactSchema,
   getDocumentInfo
-} = require('../components/contacts/domain/contact')
+} from '../components/contacts/domain/contact.mjs'
 
-const {
+import {
   getContacts,
   newContact,
   getContactById,
   updateContacto,
   deleteContact,
   getInfo
-} = require('../components/contacts/controller')
+} from '../components/contacts/controller.mjs'
+
+const router = express.Router()
 
 router.get('/', (req, res) => {
   res.send('Hola, esta es la ruta inicial, ingrese a api/persons')
@@ -60,4 +65,4 @@ router.post(
   newContact
 )
 
-module.exports = router
+export default router

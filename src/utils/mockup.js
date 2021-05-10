@@ -22,4 +22,4 @@ const persons = [
   }
 ]
 
-module.exports = persons
+export default persons

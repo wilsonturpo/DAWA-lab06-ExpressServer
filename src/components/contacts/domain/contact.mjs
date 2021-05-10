@@ -1,4 +1,5 @@
-const Joi = require('joi')
+//  const Joi = require('joi')
+import Joi from 'joi'
 
 /*
 const userId = Joi.string().regex(/^[0-9a-fA-F]{24}$/)
@@ -18,7 +19,9 @@ const getContactSchema = Joi.object({
 })
 
 const updateContactSchema = Joi.object({
-  //  id: Joi.string()
+  id: Joi.string(),
+  name: Joi.string(),
+  number: Joi.string()
 })
 
 const deleteContactSchema = Joi.object({
@@ -29,7 +32,7 @@ const getDocumentInfo = Joi.object({
   //  id: Joi.string()
 })
 
-module.exports = {
+export {
   createContactSchema,
   getContactSchema,
   updateContactSchema,

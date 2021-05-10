@@ -1,3 +1,4 @@
+/*
 const MongoContactsRepository = require('./infraestructure/MongoContactsRepository')
 const getAllContacts = require('./application/getAllContacts')
 const createContact = require('./application/createContact')
@@ -5,6 +6,14 @@ const getContact = require('./application/getContact')
 const updateContact = require('./application/updateContact')
 const deleteById = require('./application/deleteContact')
 const getContactsInfo = require('./application/getContactsInfo')
+*/
+import MongoContactsRepository from './infraestructure/MongoContactsRepository.mjs'
+import getAllContacts from './application/getAllContacts.mjs'
+import createContact from './application/createContact.mjs'
+import getContact from './application/getContact.mjs'
+import updateContact from './application/updateContact.mjs'
+import deleteById from './application/deleteContact.mjs'
+import getContactsInfo from './application/getContactsInfo.mjs'
 
 const ContactsRepository = new MongoContactsRepository()
 
@@ -91,7 +100,7 @@ const getInfo = async (_, res, next) => {
   }
 }
 
-module.exports = {
+export {
   getContacts,
   newContact,
   getContactById,

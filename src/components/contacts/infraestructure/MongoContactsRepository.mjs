@@ -1,4 +1,6 @@
-const MongoLib = require('../../../lib/mongo')
+//  const MongoLib = require('../../../lib/mongo')
+
+import MongoLib from '../../../lib/mongo.mjs'
 
 class MongoContactsRepository { // implement an interface
   constructor () {
@@ -34,4 +36,4 @@ class MongoContactsRepository { // implement an interface
   }
 }
 
-module.exports = MongoContactsRepository
+export default MongoContactsRepository
